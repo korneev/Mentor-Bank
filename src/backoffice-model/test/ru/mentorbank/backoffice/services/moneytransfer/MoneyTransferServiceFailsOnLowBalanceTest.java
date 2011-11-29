@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.ExpectedException;
 
+import ru.mentorbank.backoffice.dao.exception.OperationDaoException;
 import ru.mentorbank.backoffice.model.transfer.AccountInfo;
 import ru.mentorbank.backoffice.model.transfer.TransferRequest;
 import ru.mentorbank.backoffice.services.accounts.AccountService;
@@ -36,7 +37,7 @@ public class MoneyTransferServiceFailsOnLowBalanceTest extends
 
 	@Test
 	@ExpectedException(TransferException.class)
-	public void transfer_failsWithUnsatisfiedBalance() throws TransferException {
+	public void transfer_failsWithUnsatisfiedBalance() throws TransferException, OperationDaoException {
 		// Закомментированный код показывает, как выглядел бы тест,
 		// если бы не было аннотации Expected Exception
 		// try {
